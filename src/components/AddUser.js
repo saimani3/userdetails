@@ -45,7 +45,7 @@ const AddUser = () => {
         }
 
         try {
-            await axios.post('http://localhost:5000/api/users', formData);
+            await axios.post('https://userdetails-server.onrender.com/api/users', formData);
             alert('User added successfully');
             window.location.reload();
             setFormData({

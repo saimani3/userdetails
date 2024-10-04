@@ -18,7 +18,7 @@ const UserList = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/users');
+                const response = await axios.get('https://userdetails-server.onrender.com/api/users');
                 setUsers(response.data);
             } catch (error) {
                 alert('Error fetching users');
@@ -30,7 +30,7 @@ const UserList = () => {
     // Handle delete user
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/users/${id}`);
+            await axios.delete(`https://userdetails-server.onrender.com/api/users/${id}`);
             setUsers(users.filter(user => user._id !== id));
         } catch (error) {
             alert('Error deleting user');
@@ -52,7 +52,7 @@ const UserList = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/users/${currentUser._id}`, currentUser);
+            await axios.put(`https://userdetails-server.onrender.com/api/users/${currentUser._id}`, currentUser);
             setUsers(users.map(user => (user._id === currentUser._id ? currentUser : user)));
             setEditMode(false);
             alert('User updated successfully');
